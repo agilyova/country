@@ -1,6 +1,7 @@
 package guru.qa.country.domain;
 
 import guru.qa.country.data.CountryEntity;
+import guru.qa.country.domain.graphql.CountryInputGql;
 import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -15,5 +16,9 @@ public record Country(
 
   public static @Nonnull Country fromEntity(@Nonnull CountryEntity entity) {
     return new Country(entity.getName(), entity.getCode());
+  }
+
+  public static @Nonnull Country fromCountryInputGql(@Nonnull CountryInputGql countryInputGql) {
+    return new Country(countryInputGql.name(), countryInputGql.code());
   }
 }
