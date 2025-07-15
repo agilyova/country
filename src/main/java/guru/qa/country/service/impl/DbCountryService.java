@@ -40,6 +40,14 @@ public class DbCountryService implements CountryService {
   }
 
   @Override
+  public List<CountryGql> getAllGqlCountries() {
+    return countryRepository.findAll()
+      .stream()
+      .map(CountryGql::fromEntity)
+      .toList();
+  }
+
+  @Override
   public Page<CountryGql> getAllGqlCountries(Pageable pageable) {
     return countryRepository.findAll(pageable)
       .map(CountryGql::fromEntity);

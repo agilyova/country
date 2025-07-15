@@ -13,6 +13,8 @@ public interface CountryService {
 
   List<Country> getAllCountries();
 
+  List<CountryGql> getAllGqlCountries();
+
   Page<CountryGql> getAllGqlCountries(Pageable pageable);
 
   Country addCountry(Country country);
